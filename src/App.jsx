@@ -64,6 +64,12 @@ function App() {
             <div>
               <img src="/image6.png" alt="description 6" className="w-full h-auto rounded-3xl yassine" />
             </div>
+            <div>
+              <img src="/image8.png" alt="description 8" className="w-full h-auto rounded-3xl yassine" />
+            </div>
+            <div>
+              <img src="/image9.png" alt="description 6" className="w-full h-auto rounded-3xl yassine" />
+            </div>
            
           </Slider>
         </div>
