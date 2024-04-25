@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "./App.css";
 
 function App() {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     let timeoutId;
@@ -43,8 +43,10 @@ function App() {
 
   return (
     <div className="App">
-      <div className="bg-green-200 text-white h-16 flex justify-center items-center font-bold text-2xl m-0 relative">
-        <h2>الشحن مجاني و الدفع عند الإستلام</h2>
+      <div className="bg-gray-200 text-green-700 h-20 flex justify-center shadow-lg items-center font-bold text-2xl m-0 relative">
+        <div  className="w-[70%] text-center">
+        <h2 >الشحن مجاني و الدفع عند الإستلام</h2>
+        </div>
       </div>
       <header
         className={`fixed top-0 left-0 right-0 z-10 bg-[#f1f1f1] shadow-md transition-opacity duration-300 ${
@@ -65,7 +67,7 @@ function App() {
         </div>
       </header>
       <div className="text-center text-bold font-Poppins text-4xl md:text-5xl lg:text-6xl mb-0 md:mb-12 lg:mb-16 p-4 md:p-9 mt-5 ">
-        <h1 className="text-4xl font-bold md:text-5xl lg:text-6xl text-gray-500">
+        <h1 className="text-3xl font-bold md:text-5xl lg:text-6xl text-gray-500">
           مصباح متعدد الوظائف يجمع بين
         </h1>
         <p className="mt-3 bg-first px-4 py-1 rounded-full inline-block border-2 border-second">
@@ -93,7 +95,7 @@ function App() {
       <div className="w-full flex justify-center px-5">
         <div className="w-full md:w-3/4 max-w-screen-md">
           <Slider {...settings}>
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+            {[1, 2, 3, 4, 5, 6, 8,9].map((index) => (
               <div key={index}>
                 <img
                   src={`/image${index}.png`}
