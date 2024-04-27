@@ -110,7 +110,7 @@ const Contact = () => {
               required
             />
 
-            <button type="submit" className="btn btn-lg px-24 py-3 ">
+            <button type="submit" className="btn p-3 rounded-3xl text-white w-[150px] font-bold text-xl shadow-lg">
               أطلب الآن
             </button>
           </motion.form>

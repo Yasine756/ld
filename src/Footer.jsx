@@ -14,7 +14,7 @@ function Footer() {
         <p> الشحن مجاني إلى باب المنزل, مع إمكانية الإسترجاع</p>
       </div>
       <div className="flex justify-center">
-        <div className="text-center bg-gray-500 text-white w-[100%]">
+        <div className="text-right bg-gray-500 text-white w-[100%]">
           <h4>&copy;2024/2025</h4>
         </div>
       </div>
