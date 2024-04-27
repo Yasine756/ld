@@ -43,15 +43,15 @@ function Comments() {
           {person.map((elem) => (
             <div
               key={elem.id}
-              className="bg-green-600 py-3 rounded-xl mt-5 w-[100%] px-3 shadow-lg"
+              className="bg-blue-100 py-3 rounded-xl mt-5 w-[100%] px-3 shadow-lg"
             >
               <div>
                 <img src={elem.image} alt="" className="w-[9%]" />
               </div>
-              <div className="text-sm text-gray-100 font-bold mb-5">
+              <div className="text-sm text-gray-400 font-bold mb-5">
                 <h3>{elem.name}</h3>
               </div>
-              <div className="bg-gray-100 rounded-lg px-3 text-right py-1">
+              <div className="bg-gray-100 rounded-lg px-3 text-right py-1 text-gray-500">
                 <p>{elem.com}</p>
               </div>
             </div>
