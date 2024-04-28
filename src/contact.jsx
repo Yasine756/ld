@@ -3,39 +3,42 @@ import { motion } from "framer-motion";
 import { fadeIn } from "./variants";
 
 const Contact = () => {
-  // State variables to manage form input values
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [message, setMessage] = useState("");
   const [quantity, setQuantity] = useState(1);
-  const [amount, setAmount] = useState(245)
+  const [amount, setAmount] = useState(245);
+  const [showAlert, setShowAlert] = useState(false);
+
+  const submit = () => {
+    const formEle = document.querySelector('form');
+    const formData1 = new FormData(formEle);
+    fetch("https://script.google.com/macros/s/AKfycbw7JfdbaSlmIyiFt4RBFW9mB-fclmFd2WAfkkRK4RM3dZGl8irwgtxJ3G7Whia5trczmQ/exec", {
+      method: "POST",
+      body: formData1,
+    });
+  };
 
   useEffect(() => {
     if(quantity > 1){
-      setAmount( (245*quantity)-(245*quantity*quantity/100));
-    }else{
-      setAmount(245)
+      setAmount((245 * quantity) - (245 * quantity * quantity / 100));
+    } else {
+      setAmount(245);
     }
-  },[quantity]);
-  
+  }, [quantity]);
 
-  // State variable to manage alert display
-  const [showAlert, setShowAlert] = useState(false);
-
-  // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Prepare form data
+    submit();
     const formData = new FormData();
     formData.append("email", email);
     formData.append("phone", phone);
     formData.append("address", address);
     formData.append("name", message);
     formData.append("quantity", quantity);
+    formData.append("amount", amount);
 
-    // Submit form to Formspree endpoint
     try {
       const response = await fetch("https://formspree.io/f/mqkrddrn", {
         method: "POST",
@@ -45,17 +48,15 @@ const Contact = () => {
         },
       });
 
-      // If submission is successful, show alert
       if (response.ok) {
         setShowAlert(true);
-        // Reset form fields
         setEmail("");
         setMessage("");
         setAddress("");
         setPhone("");
         setQuantity(1);
+        setAmount(245);
 
-        // Hide alert after 2 seconds
         setTimeout(() => {
           setShowAlert(false);
         }, 2000);
@@ -65,19 +66,21 @@ const Contact = () => {
     }
   };
 
-  function add(e) {
+  const add = (e) => {
     e.preventDefault();
     if (quantity < 5) {
       setQuantity(quantity + 1);
     }
-  }
+  };
 
-  function del(e) {
+  const del = (e) => {
     e.preventDefault();
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
-  }
+  };
+
+ 
 
   return (
     <section className="lg:section py-10" id="contact">
@@ -96,7 +99,7 @@ const Contact = () => {
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: false, amount: 0.1 }}
-            className="flex-1 border-[3px] border-gray-300 mx-[5%]  shadow-xl rounded-2xl flex flex-col gap-y-4  p-6 items-center"
+            className="form flex-1 border-[3px] border-gray-300 mx-[5%]  shadow-xl rounded-2xl flex flex-col gap-y-4  p-6 items-center"
             onSubmit={handleSubmit}
             style={{ backgroundColor: "fff" }}
           >
@@ -110,6 +113,7 @@ const Contact = () => {
             <input
               type="text"
               value={message}
+              name="Name"
               onChange={(e) => setMessage(e.target.value)}
               className="text-right bg-transparent border-b border-gray-300 py-3 outline-none w-full placeholder:text-gray-400 focus:border-black transition-all resize-none"
               placeholder="الإسم الكامل"
@@ -118,6 +122,7 @@ const Contact = () => {
             <input
               type="email"
               value={email}
+              name="Email"
               onChange={(e) => setEmail(e.target.value)}
               className="text-right bg-transparent border-b border-gray-300 py-3 outline-none w-full placeholder:text-gray-400 focus:border-black transition-all"
               placeholder="البريد الإلكتروني"
@@ -126,6 +131,7 @@ const Contact = () => {
             <input
               type="text"
               value={phone}
+              name="Phone"
               onChange={(e) => setPhone(e.target.value)}
               className="text-right bg-transparent border-b border-gray-300 py-3 outline-none w-full placeholder:text-gray-400 focus:border-black transition-all"
               placeholder="رقم الهاتف"
@@ -134,6 +140,7 @@ const Contact = () => {
             <input
               type="address"
               value={address}
+              name="Address"
               onChange={(e) => setAddress(e.target.value)}
               className="text-right bg-transparent border-b border-gray-300 py-3 outline-none w-full placeholder:text-gray-400 focus:border-black transition-all"
               placeholder="عنوان التوصيل"
@@ -148,7 +155,7 @@ const Contact = () => {
                 -
               </button>
               <div className="text-3xl mx-10">
-                <h1 className="text-center"> {quantity}</h1>
+                <h1 className="text-center" name="Quantity"> {quantity}</h1>
               </div>
               <button
                 onClick={add}
@@ -158,7 +165,7 @@ const Contact = () => {
               </button>
             </div>
             <div className="flex text-green-600 font-bold text-lg">
-              ريال <h5 className="mx-1"> {amount}</h5>
+              ريال <h5 className="mx-1" name="Amount"> {amount}</h5>
             </div>
             <button
               type="submit"
