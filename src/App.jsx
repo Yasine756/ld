@@ -129,7 +129,7 @@ function App() {
           مميزات المنتج
         </h1>
         <div className="flex justify-center mb-5">
-          <img src="icons/4.png" alt="" className="w-[30%]"/>
+          <img src="icons/4.png" alt="" className="w-[30%]" />
         </div>
         <motion.div
           className="mb-5"
@@ -144,7 +144,7 @@ function App() {
               alt=""
               className="w-[90%] rounded-lg"
             />
-            <div className="text-center mx-[5%]">
+            <div className="text-right mx-[5%]">
               يأخذ ثلاثة وضعيات مختلفة, يمكنك استعماله فوق المكتب, في الخرجات و
               استعماله كمصباح يدوي محمول
             </div>
@@ -159,7 +159,7 @@ function App() {
             className="mb-5"
           >
             <div className="bg-gray-100 py-3 px-2 mx-[5%] rounded-2xl text-gray-500 shadow-lg flex justify-end items-center">
-              <div className="text-cente mx-[5%]">
+              <div className="text-right mx-[5%]">
                 بنك للطاقة يمكنك من خلاله شحن هاتفك, حاسوبك, أو أجهزتك في
                 الخرجات
               </div>
@@ -184,7 +184,7 @@ function App() {
               alt=""
               className="w-[90%] rounded-lg"
             />
-            <div className="text-center mx-[10%] flex items-center">
+            <div className="text-right mx-[10%] flex items-center">
               تصميم عصري أنيق, مقاوم للماء, متانة عالية, و وزن خفيف يسهل أخذه
               إلى أي مكان
             </div>

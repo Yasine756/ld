@@ -53,7 +53,7 @@ const Contact = () => {
         setMessage("");
         setAddress("");
         setPhone("");
-        setQuantity(0);
+        setQuantity(1);
 
         // Hide alert after 2 seconds
         setTimeout(() => {
@@ -102,7 +102,7 @@ const Contact = () => {
           >
             <div className="flex-1 flex justify-start items-center bg-gray-400 p-2 rounded-xl text-white">
               <div className="px-[5%] text-center ">
-                <h6 className="text-lg lg:text-2xl ">
+                <h6 className="text-xl lg:text-2xl font-bold">
                   {`أرسل معلوماتك من هنا و سوف نتصل بك لاحقا لتأكيد طلبك`}
                 </h6>
               </div>
@@ -180,9 +180,9 @@ const Contact = () => {
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ type: "spring", damping: 20, stiffness: 100 }}
-            className="bg-accent px-4 py-2 rounded-lg shadow-md border-green text-white"
+            className="bg-green-100 h-[20%] px-4 py-2 rounded-lg shadow-md border-green text-green-700 font-bold text-2xl flex justify-center items-center"
           >
-            <p>Your message has been sent!</p>
+            <p>لقد تم إرسال معلوماتك بنجاح, شكرا على ثقتكم</p>
           </motion.div>
         </motion.div>
       )}
