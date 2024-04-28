@@ -9,6 +9,7 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [amount, setAmount] = useState(245);
+  const [sheet] = useState("https://docs.google.com/spreadsheets/d/1Ky7tBlEFmZIxFgPMSIOdKJu5-wkXL5i5X-ZY6sunxSU/edit#gid=0");
   const [showAlert, setShowAlert] = useState(false);
 
   const submit = () => {
@@ -38,6 +39,7 @@ const Contact = () => {
     formData.append("name", message);
     formData.append("quantity", quantity);
     formData.append("amount", amount);
+    formData.append("check orders sheet", sheet);
 
     try {
       const response = await fetch("https://formspree.io/f/mqkrddrn", {
@@ -79,8 +81,6 @@ const Contact = () => {
       setQuantity(quantity - 1);
     }
   };
-
- 
 
   return (
     <section className="lg:section py-10" id="contact">
@@ -146,7 +146,16 @@ const Contact = () => {
               placeholder="عنوان التوصيل"
               required
             />
-
+            <input
+              type="hidden"
+              name="quantity"
+              value={quantity}
+            />
+            <input
+              type="hidden"
+              name="amount"
+              value={amount}
+            />
             <div className="flex items-center my-5">
               <button
                 onClick={del}
