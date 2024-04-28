@@ -180,7 +180,7 @@ const Contact = () => {
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ type: "spring", damping: 20, stiffness: 100 }}
-            className="bg-green-100 h-[20%] px-4 py-2 rounded-lg shadow-md border-green text-green-700 font-bold text-2xl flex justify-center items-center"
+            className="bg-green-100 h-[20%] px-4 py-2 rounded-lg shadow-md border-green text-green-800 font-bold text-2xl flex justify-center items-center text-center"
           >
             <p>لقد تم إرسال معلوماتك بنجاح, شكرا على ثقتكم</p>
           </motion.div>
