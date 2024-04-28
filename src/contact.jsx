@@ -13,8 +13,13 @@ const Contact = () => {
   const [showAlert, setShowAlert] = useState(false);
 
   const submit = () => {
-    const formEle = document.querySelector('form');
-    const formData1 = new FormData(formEle);
+    const formData1 = new FormData();
+    formData1.append("Email", email);
+    formData1.append("Phone", phone);
+    formData1.append("Address", address);
+    formData1.append("Name", message);
+    formData1.append("Quantity", quantity);
+    formData1.append("Amount", amount);
     fetch("https://script.google.com/macros/s/AKfycbw7JfdbaSlmIyiFt4RBFW9mB-fclmFd2WAfkkRK4RM3dZGl8irwgtxJ3G7Whia5trczmQ/exec", {
       method: "POST",
       body: formData1,
