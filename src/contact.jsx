@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "./variants";
 
@@ -8,6 +8,18 @@ const Contact = () => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [message, setMessage] = useState("");
+  const [quantity, setQuantity] = useState(1);
+  const [amount, setAmount] = useState(245)
+
+  useEffect(() => {
+    if(quantity > 1){
+      setAmount( (245*quantity)-(245*quantity*quantity/100));
+    }else{
+      setAmount(245)
+    }
+  },[quantity]);
+  
+
   // State variable to manage alert display
   const [showAlert, setShowAlert] = useState(false);
 
@@ -21,6 +33,7 @@ const Contact = () => {
     formData.append("phone", phone);
     formData.append("address", address);
     formData.append("name", message);
+    formData.append("quantity", quantity);
 
     // Submit form to Formspree endpoint
     try {
@@ -40,6 +53,7 @@ const Contact = () => {
         setMessage("");
         setAddress("");
         setPhone("");
+        setQuantity(0);
 
         // Hide alert after 2 seconds
         setTimeout(() => {
@@ -51,8 +65,30 @@ const Contact = () => {
     }
   };
 
+  function add(e) {
+    e.preventDefault();
+    if (quantity < 5) {
+      setQuantity(quantity + 1);
+    }
+  }
+
+  function del(e) {
+    e.preventDefault();
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  }
+
   return (
-    <section className="lg:section py-16" id="contact">
+    <section className="lg:section py-10" id="contact">
+      <div className="px-5">
+        <div className="rounded-3xl w-[50%] px-3">
+          <h3 className="text-green-700 font-bold text-2xl">245 ريال</h3>
+          <del className="text-red-700">
+            <p>ريال 270</p>
+          </del>
+        </div>
+      </div>
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row ">
           <motion.form
@@ -64,19 +100,13 @@ const Contact = () => {
             onSubmit={handleSubmit}
             style={{ backgroundColor: "fff" }}
           >
-            <motion.div
-              variants={fadeIn("right", 0.3)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.3 }}
-              className="flex-1 flex justify-start items-center bg-gray-400 p-2 rounded-xl text-white"
-            >
+            <div className="flex-1 flex justify-start items-center bg-gray-400 p-2 rounded-xl text-white">
               <div className="px-[5%] text-center ">
                 <h6 className="text-lg lg:text-2xl ">
                   {`أرسل معلوماتك من هنا و سوف نتصل بك لاحقا لتأكيد طلبك`}
                 </h6>
               </div>
-            </motion.div>
+            </div>
             <input
               type="text"
               value={message}
@@ -110,13 +140,35 @@ const Contact = () => {
               required
             />
 
-            <button type="submit" className="btn p-3 rounded-3xl text-white w-[150px] font-bold text-xl shadow-lg">
+            <div className="flex items-center my-5">
+              <button
+                onClick={del}
+                className="bg-gray-200 px-4 text-2xl rounded-lg border-l-[1px] border-b-[1px] border-gray-400 py-2 shadow-md hover:border-none"
+              >
+                -
+              </button>
+              <div className="text-3xl mx-10">
+                <h1 className="text-center"> {quantity}</h1>
+              </div>
+              <button
+                onClick={add}
+                className="bg-gray-200 px-4 text-2xl rounded-lg border-r-[1px] border-b-[1px] border-gray-400 py-2 shadow-md hover:border-none"
+              >
+                +
+              </button>
+            </div>
+            <div className="flex text-green-600 font-bold text-lg">
+              ريال <h5 className="mx-1"> {amount}</h5>
+            </div>
+            <button
+              type="submit"
+              className="btn p-3 rounded-3xl text-white w-[150px] font-bold text-xl shadow-lg"
+            >
               أطلب الآن
             </button>
           </motion.form>
         </div>
       </div>
-      {/* Alert for successful form submission */}
       {showAlert && (
         <motion.div
           initial={{ opacity: 0 }}

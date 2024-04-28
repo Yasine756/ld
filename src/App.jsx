@@ -63,13 +63,13 @@ function App() {
         </div>
       </div>
       <header
-        className={`fixed top-0 left-0  right-0 z-10 bg-[#f1f1f1] shadow-md transition-opacity duration-300 ${
+        className={`fixed top-0 left-0 h:26 sm:h-[15%]  right-0 z-10 bg-[#f1f1f1] shadow-md transition-opacity duration-300 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
       >
         <div className="container mx-auto">
           <div className="flex justify-between items-center pt-4 pb-2  px-5">
-            <img src="logo.png" alt="Logo" className="w-[45%] h-auto" />{" "}
+            <img src="logo.png" alt="Logo" className="w-[20%] h-auto" />{" "}
             {/* Ajustez la taille selon vos besoins */}
             <button
               id="myButton"
@@ -81,13 +81,7 @@ function App() {
           </div>
         </div>
       </header>
-      <div className="text-center text-bold font-Poppins text-4xl md:text-5xl lg:text-6xl mb-0 md:mb-12 lg:mb-16 p-4 md:p-9 mt-5 flex gap-2 items-center">
-        <div className="text-sm  rounded-3xl w-[30%] p-3">
-          <h3 className="text-green-700 font-bold text-lg">245 ريال</h3>
-          <del className="text-red-700">
-            <p>ريال 270</p>
-          </del>
-        </div>
+      <div className="text-center text-bold font-Poppins text-4xl md:text-5xl lg:text-6xl mb-0 md:mb-12 lg:mb-16 p-4 md:p-9 mt-5 flex gap-2 justify-center items-center">
         <h1 className="text-3xl font-bold md:text-5xl lg:text-6xl text-gray-500 bg-gray-100 rounded-3xl px-5 py-1">
           مصباح متعدد الوظائف
         </h1>
@@ -117,7 +111,7 @@ function App() {
       <div className="w-full flex justify-center px-5 mb-10">
         <div className="w-full md:w-3/4 max-w-screen-md">
           <Slider {...settings}>
-            {[1, 2, 3, 4, 5, 6, 8, 9].map((index) => (
+            {[1, 4, 5, 6, 8].map((index) => (
               <div key={index}>
                 <img
                   src={`/image${index}.png`}
@@ -131,7 +125,12 @@ function App() {
       </div>
 
       <div>
-        <h1 className="text-center text-3xl my-3 font-bold text-gray-500">مميزات المنتج</h1>
+        <h1 className="text-center text-3xl my-3 font-bold text-gray-500">
+          مميزات المنتج
+        </h1>
+        <div className="flex justify-center mb-5">
+          <img src="icons/4.png" alt="" className="w-[30%]"/>
+        </div>
         <motion.div
           className="mb-5"
           variants={fadeIn("left", 0.5)}
@@ -139,8 +138,13 @@ function App() {
           whileInView={"show"}
           viewport={{ once: false, amount: 0.3 }}
         >
-          <div className="bg-gray-100 py-3 px-2 mx-[5%] rounded-2xl text-gray-500 shadow-lg">
-            <div className="text-center">
+          <div className="bg-gray-100 py-3 px-2 mx-[5%] rounded-2xl text-gray-500 shadow-lg flex items-center">
+            <img
+              src="caractéristicImages/3.png"
+              alt=""
+              className="w-[90%] rounded-lg"
+            />
+            <div className="text-center mx-[5%]">
               يأخذ ثلاثة وضعيات مختلفة, يمكنك استعماله فوق المكتب, في الخرجات و
               استعماله كمصباح يدوي محمول
             </div>
@@ -152,10 +156,18 @@ function App() {
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: false, amount: 0.3 }}
-            className="bg-gray-100 py-3 px-2 mx-[5%] rounded-2xl text-gray-500 shadow-lg"
+            className="mb-5"
           >
-            <div className="text-center">
-              بنك للطاقة يمكنك من خلاله شحن هاتفك, حاسوبك, أو أجهزتك في الخرجات
+            <div className="bg-gray-100 py-3 px-2 mx-[5%] rounded-2xl text-gray-500 shadow-lg flex justify-end items-center">
+              <div className="text-cente mx-[5%]">
+                بنك للطاقة يمكنك من خلاله شحن هاتفك, حاسوبك, أو أجهزتك في
+                الخرجات
+              </div>
+              <img
+                src="caractéristicImages/2.png"
+                alt=""
+                className="w-[70%] rounded-lg"
+              />
             </div>
           </motion.div>
         </div>
@@ -166,8 +178,13 @@ function App() {
           viewport={{ once: false, amount: 0.3 }}
           className="mb-5"
         >
-          <div className="bg-gray-100 py-3 px-2 mx-[5%] rounded-2xl text-gray-500 shadow-lg">
-            <div className="text-center">
+          <div className="bg-gray-100 py-3 px-2 mx-[5%] rounded-2xl text-gray-500 shadow-lg flex justify-end ">
+            <img
+              src="caractéristicImages/1.png"
+              alt=""
+              className="w-[90%] rounded-lg"
+            />
+            <div className="text-center mx-[10%] flex items-center">
               تصميم عصري أنيق, مقاوم للماء, متانة عالية, و وزن خفيف يسهل أخذه
               إلى أي مكان
             </div>
@@ -175,9 +192,8 @@ function App() {
         </motion.div>
       </div>
       <Contact />
-      <Comments/>
-      <Footer/>
-
+      <Comments />
+      <Footer />
     </div>
   );
 }
