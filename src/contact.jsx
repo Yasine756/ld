@@ -8,7 +8,9 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [amount, setAmount] = useState(245);
-  const [sheet] = useState("https://docs.google.com/spreadsheets/d/1Ky7tBlEFmZIxFgPMSIOdKJu5-wkXL5i5X-ZY6sunxSU/edit#gid=0");
+  const [sheet] = useState(
+    "https://docs.google.com/spreadsheets/d/1Ky7tBlEFmZIxFgPMSIOdKJu5-wkXL5i5X-ZY6sunxSU/edit#gid=0"
+  );
   const [showAlert, setShowAlert] = useState(false);
 
   const submit = () => {
@@ -18,15 +20,18 @@ const Contact = () => {
     formData1.append("Name", message);
     formData1.append("Quantity", quantity);
     formData1.append("Amount", amount);
-    fetch("https://script.google.com/macros/s/AKfycbw7JfdbaSlmIyiFt4RBFW9mB-fclmFd2WAfkkRK4RM3dZGl8irwgtxJ3G7Whia5trczmQ/exec", {
-      method: "POST",
-      body: formData1,
-    });
+    fetch(
+      "https://script.google.com/macros/s/AKfycbw7JfdbaSlmIyiFt4RBFW9mB-fclmFd2WAfkkRK4RM3dZGl8irwgtxJ3G7Whia5trczmQ/exec",
+      {
+        method: "POST",
+        body: formData1,
+      }
+    );
   };
 
   useEffect(() => {
-    if(quantity > 1){
-      setAmount((245 * quantity) - (245 * quantity * quantity / 100));
+    if (quantity > 1) {
+      setAmount(245 * quantity - (245 * quantity * quantity) / 100);
     } else {
       setAmount(245);
     }
@@ -95,22 +100,24 @@ const Contact = () => {
       </div>
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row ">
-          <motion.form
-            variants={fadeIn("right", 0.3)}
-            initial="hidden"
-            whileInView={"show"}
-            viewport={{ once: true, amount: 0.5 }}
+          <form
             className="form flex-1 border-[3px] border-gray-300 mx-[5%]  shadow-xl rounded-2xl flex flex-col gap-y-4  p-6 items-center"
             onSubmit={handleSubmit}
             style={{ backgroundColor: "fff" }}
           >
-            <div className="flex-1 flex justify-start items-center bg-gray-400 p-2 rounded-xl text-white">
+            <motion.div
+              variants={fadeIn("right", 0.3)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: true, amount: 0.3 }}
+              className="flex-1 flex justify-start items-center bg-gray-400 p-2 rounded-xl text-white"
+            >
               <div className="px-[5%] text-center ">
                 <h6 className="text-xl lg:text-2xl font-bold">
                   {`أرسل معلوماتك من هنا و سوف نتصل بك لاحقا لتأكيد طلبك`}
                 </h6>
               </div>
-            </div>
+            </motion.div>
             <input
               type="text"
               value={message}
@@ -138,16 +145,8 @@ const Contact = () => {
               placeholder="عنوان التوصيل"
               required
             />
-            <input
-              type="hidden"
-              name="quantity"
-              value={quantity}
-            />
-            <input
-              type="hidden"
-              name="amount"
-              value={amount}
-            />
+            <input type="hidden" name="quantity" value={quantity} />
+            <input type="hidden" name="amount" value={amount} />
             <div className="flex items-center my-5">
               <button
                 onClick={del}
@@ -156,7 +155,10 @@ const Contact = () => {
                 -
               </button>
               <div className="text-3xl mx-10">
-                <h1 className="text-center" name="Quantity"> {quantity}</h1>
+                <h1 className="text-center" name="Quantity">
+                  {" "}
+                  {quantity}
+                </h1>
               </div>
               <button
                 onClick={add}
@@ -166,7 +168,11 @@ const Contact = () => {
               </button>
             </div>
             <div className="flex text-green-600 font-bold text-lg">
-              ريال <h5 className="mx-1" name="Amount"> {amount}</h5>
+              ريال{" "}
+              <h5 className="mx-1" name="Amount">
+                {" "}
+                {amount}
+              </h5>
             </div>
             <button
               type="submit"
@@ -174,7 +180,7 @@ const Contact = () => {
             >
               أطلب الآن
             </button>
-          </motion.form>
+          </form>
         </div>
       </div>
       {showAlert && (
