@@ -51,7 +51,7 @@ function Comments() {
             variants={fadeIn("top", 0.5)}
             initial="hidden"
             whileInView={"show"}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
               key={elem.id}
               className="mb-5 w-[100%] rounded-xl  flex justify-center"
             >

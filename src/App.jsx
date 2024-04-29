@@ -136,7 +136,7 @@ function App() {
           variants={fadeIn("left", 0.5)}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <div className="bg-gray-100 py-3 px-2 mx-[5%] rounded-2xl text-gray-500 shadow-lg flex items-center">
             <img
@@ -155,7 +155,7 @@ function App() {
             variants={fadeIn("right", 0.3)}
             initial="hidden"
             whileInView={"show"}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
             className="mb-5"
           >
             <div className="bg-gray-100 py-3 px-2 mx-[5%] rounded-2xl text-gray-500 shadow-lg flex justify-end items-center">
@@ -175,7 +175,7 @@ function App() {
           variants={fadeIn("left", 0.3)}
           initial="hidden"
           whileInView={"show"}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="mb-5"
         >
           <div className="bg-gray-100 py-3 px-2 mx-[5%] rounded-2xl text-gray-500 shadow-lg flex justify-end ">

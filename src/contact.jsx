@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { fadeIn } from "./variants";
 
 const Contact = () => {
-  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [message, setMessage] = useState("");
@@ -14,7 +13,6 @@ const Contact = () => {
 
   const submit = () => {
     const formData1 = new FormData();
-    formData1.append("Email", email);
     formData1.append("Phone", phone);
     formData1.append("Address", address);
     formData1.append("Name", message);
@@ -38,7 +36,6 @@ const Contact = () => {
     e.preventDefault();
     submit();
     const formData = new FormData();
-    formData.append("email", email);
     formData.append("phone", phone);
     formData.append("address", address);
     formData.append("name", message);
@@ -57,7 +54,6 @@ const Contact = () => {
 
       if (response.ok) {
         setShowAlert(true);
-        setEmail("");
         setMessage("");
         setAddress("");
         setPhone("");
@@ -100,10 +96,10 @@ const Contact = () => {
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row ">
           <motion.form
-            variants={fadeIn("left", 0.3)}
+            variants={fadeIn("right", 0.3)}
             initial="hidden"
             whileInView={"show"}
-            viewport={{ once: false, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.5 }}
             className="form flex-1 border-[3px] border-gray-300 mx-[5%]  shadow-xl rounded-2xl flex flex-col gap-y-4  p-6 items-center"
             onSubmit={handleSubmit}
             style={{ backgroundColor: "fff" }}
@@ -122,15 +118,6 @@ const Contact = () => {
               onChange={(e) => setMessage(e.target.value)}
               className="text-right bg-transparent border-b border-gray-300 py-3 outline-none w-full placeholder:text-gray-400 focus:border-black transition-all resize-none"
               placeholder="الإسم الكامل"
-              required
-            />
-            <input
-              type="email"
-              value={email}
-              name="Email"
-              onChange={(e) => setEmail(e.target.value)}
-              className="text-right bg-transparent border-b border-gray-300 py-3 outline-none w-full placeholder:text-gray-400 focus:border-black transition-all"
-              placeholder="البريد الإلكتروني"
               required
             />
             <input

@@ -11,7 +11,7 @@ function Footer() {
         </div>
       </div>
       <div className="flex justify-center text-center mb-5 text-gray-500 text-xl font-bold">
-        <p> الشحن مجاني إلى باب المنزل, مع إمكانية الإسترجاع</p>
+        <p> التوصيل مجاني إلى باب المنزل, مع إمكانية الإسترجاع</p>
       </div>
       <div className="flex justify-center">
         <div className="text-center bg-gray-500 text-white w-[100%]">
