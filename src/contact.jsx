@@ -9,7 +9,7 @@ const Contact = () => {
   const [quantity, setQuantity] = useState(1);
   const [amount, setAmount] = useState(245);
   const [sheet] = useState(
-    "https://docs.google.com/spreadsheets/d/1Ky7tBlEFmZIxFgPMSIOdKJu5-wkXL5i5X-ZY6sunxSU/edit#gid=0"
+    "https://docs.google.com/spreadsheets/d/1AUIcFSUujZcyHJy_wvdbrkHtMHOS-9egiFRYh2UYqmQ/edit?gid=0#gid=0"
   );
   const [showAlert, setShowAlert] = useState(false);
 
@@ -21,7 +21,7 @@ const Contact = () => {
     formData1.append("Quantity", quantity);
     formData1.append("Amount", amount);
     fetch(
-      "https://script.google.com/macros/s/AKfycbw7JfdbaSlmIyiFt4RBFW9mB-fclmFd2WAfkkRK4RM3dZGl8irwgtxJ3G7Whia5trczmQ/exec",
+      "https://script.google.com/macros/s/AKfycby77xR5NcwO0r4ZQDtFoEKzp3FCJL2ie2pvLcYzlj9y82EoNrU1e5e51yfSEuS9r69XLQ/exec",
       {
         method: "POST",
         body: formData1,
