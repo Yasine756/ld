@@ -129,7 +129,7 @@ function App() {
           مميزات المنتج
         </h1>
         <div className="flex justify-center mb-5">
-          <img src="icons/4.png" alt="" className="w-[90%vv]" />
+          <img src="icons/4.png" alt="" className="w-[90%]" />
         </div>
         <motion.div
           className="mb-5"
@@ -142,7 +142,7 @@ function App() {
             <img
               src="caractéristicImages/3.png"
               alt=""
-              className="w-[90%vv] rounded-lg"
+              className="w-[30%] rounded-lg"
             />
             <div className="text-right mx-[5%]">
               يأخذ ثلاثة وضعيات مختلفة, يمكنك استعماله فوق المكتب, في الخرجات و
@@ -166,7 +166,7 @@ function App() {
               <img
                 src="caractéristicImages/2.png"
                 alt=""
-                className="w-[90%vv] rounded-lg"
+                className="w-[30%] rounded-lg"
               />
             </div>
           </motion.div>
@@ -182,7 +182,7 @@ function App() {
             <img
               src="caractéristicImages/1.png"
               alt=""
-              className="w-[90%vv] rounded-lg"
+              className="w-[30%] rounded-lg"
             />
             <div className="text-right mx-[10%] flex items-center">
               تصميم عصري أنيق, مقاوم للماء, متانة عالية, و وزن خفيف يسهل أخذه
