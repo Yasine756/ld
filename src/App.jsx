@@ -129,7 +129,7 @@ function App() {
           مميزات المنتج
         </h1>
         <div className="flex justify-center mb-5">
-          <img src="icons/4.png" alt="" className="w-[90%]" />
+          <img src="icons/4.png" alt="" className="w-[40%]" />
         </div>
         <motion.div
           className="mb-5"
