@@ -8,11 +8,13 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [amount, setAmount] = useState(245);
+  const [showAlert, setShowAlert] = useState(false);
+
+
+  
   const [sheet] = useState(
     "https://docs.google.com/spreadsheets/d/1AUIcFSUujZcyHJy_wvdbrkHtMHOS-9egiFRYh2UYqmQ/edit?gid=0#gid=0"
   );
-  const [showAlert, setShowAlert] = useState(false);
-
   const submit = () => {
     const formData1 = new FormData();
     formData1.append("Phone", phone);
