@@ -144,7 +144,7 @@ function App() {
               alt=""
               className="w-[40%] rounded-lg"
             />
-            <div className="text-right mx-[5%]">
+            <div className="text-right mx-[5%] text-lg">
               يأخذ ثلاثة وضعيات مختلفة, يمكنك استعماله فوق المكتب, في الخرجات و
               استعماله كمصباح يدوي محمول
             </div>
@@ -159,7 +159,7 @@ function App() {
             className="mb-5"
           >
             <div className="bg-gray-100 py-3 px-2 mx-[5%] rounded-2xl text-gray-500 shadow-lg flex justify-end items-center">
-              <div className="text-right mx-[5%]">
+              <div className="text-right mx-[5%] text-lg">
                 بنك للطاقة يمكنك من خلاله شحن هاتفك, حاسوبك, أو أجهزتك في
                 الخرجات
               </div>
@@ -178,7 +178,7 @@ function App() {
           viewport={{ once: true, amount: 0.3 }}
           className="mb-5"
         >
-          <div className="bg-gray-100 py-3 px-2 mx-[5%] rounded-2xl text-gray-500 shadow-lg flex justify-end ">
+          <div className="bg-gray-100 py-3 px-2 mx-[5%] rounded-2xl text-gray-500 shadow-lg flex justify-end text-lg">
             <img
               src="caractéristicImages/1.png"
               alt=""
